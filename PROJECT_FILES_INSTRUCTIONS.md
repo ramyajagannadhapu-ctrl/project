@@ -4,4 +4,5 @@ in the editor; however, it is possible from the terminal. You must not
 modify or delete these files because doing so results in a zero score.
 
 * src/test/java/com/hackerrank/orm/SpringBootORMTests.java
+
 * src/test/resources/testData.txt
