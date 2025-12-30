@@ -18,7 +18,9 @@ public class ItemController {
     @Autowired
     private ItemService itemService;
 
+
     // INSERT - POST /app/item
+
     @PostMapping
     public ResponseEntity<Item> createItem(@RequestBody Item item) {
         try {
@@ -29,7 +31,9 @@ public class ItemController {
         }
     }
 
+
     // UPDATE - PUT /app/item/{itemId}
+
     @PutMapping("/{itemId}")
     public ResponseEntity<Item> updateItem(
             @PathVariable Integer itemId,
@@ -42,7 +46,9 @@ public class ItemController {
         }
     }
 
+
     // DELETE BY ID - DELETE /app/item/{itemId}
+  
     @DeleteMapping("/{itemId}")
     public ResponseEntity<Void> deleteItem(@PathVariable Integer itemId) {
         try {
@@ -53,14 +59,18 @@ public class ItemController {
         }
     }
 
+
     // DELETE ALL - DELETE /app/item
+
     @DeleteMapping
     public ResponseEntity<Void> deleteAllItems() {
         itemService.deleteAllItems();
         return ResponseEntity.ok().build();
     }
 
+
     // GET BY ID - GET /app/item/{itemId}
+
     @GetMapping("/{itemId}")
     public ResponseEntity<Item> getItem(@PathVariable Integer itemId) {
         try {
@@ -76,7 +86,9 @@ public class ItemController {
         return ResponseEntity.ok(itemService.getAllItems());
     }
 
+
     //FILTER - GET /app/item?itemStatus={status}&itemEnteredByUser={user}
+
     @GetMapping(params = {"itemStatus", "itemEnteredByUser"})
     public ResponseEntity<List<Item>> filterItems(
             @RequestParam ItemStatus itemStatus,
@@ -87,7 +99,9 @@ public class ItemController {
         );
     }
 
+
     // PAGINATION + SORTING
+
     // GET /app/item?pageSize={pageSize}&page={page}&sortBy={sortBy}
     @GetMapping(params = {"pageSize", "page", "sortBy"})
     public ResponseEntity<List<Item>> getItemsWithPagination(
